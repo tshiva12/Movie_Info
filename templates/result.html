@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <title>Movie Info</title>
+  <meta charset="utf-8">
+  <!-- <link rel="stylesheet" href="../static/stylesheets/style.css"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+      #outside {
+         /*border: 1px solid black;*/
+         /*border-collapse: collapse;*/
+         width:100%;
+         /*background-color: blue;*/
+      }
+      #inside {
+         border: 1px solid black;
+         border-collapse: collapse;
+         width:100%;
+      }
+      #image {
+         border: 1px solid black;
+         border-collapse: collapse;
+         width:100%;
+      }
+   </style>
+</head>
+   <body background = "https://webgradients.com/public/webgradients_png/008%20Rainy%20Ashville.png">
+      <div class = "whole">
+      <!-- background="https://media0.giphy.com/media/NzSUEgbTWB7TW/giphy.gif" -->
+      <!-- style="background-color: white" -->
+         <table class="table table-hover" id = "outside">
+            {% for key, value in result.items() %}
+               <tr>
+                  <!-- <th> {{ key }} </th> -->
+                  <thead><th> <img src = {{ key }} style="height:800px;" /> </th>
+                  <td><table class="table table-hover" id = "inside">
+                  	<br>
+                  		{% for key2, value2 in value.items() %}
+   	               		<tr>
+   	               			<th> {{ key2 }} </th>
+   	               			<td> {{ value2 }} </td>
+   	               		</tr>
+   	               	{% endfor %}
+                  </table></td></thead>
+                  <!-- <td> {{ value }} </td> -->
+               </tr>
+            {% endfor %}
+         </table>
+      </div>
+   </body>
+</html>
